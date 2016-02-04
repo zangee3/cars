@@ -695,8 +695,16 @@ footer .btn-primary.text-white {
     margin-bottom: 15px;
 }
 
+/* ------------- my custom css ------------------- */
 .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
     margin-left: -90px;
+}
+.tabbable-line > .nav-tabs > li {
+	background-color: #800310;
+}
+
+.tabbable-line > .nav-tabs > li > a {
+	color: #ffffff;
 }
 /* ---------- //Advanced Features Css ---------- */
 

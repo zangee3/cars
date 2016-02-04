@@ -30,4 +30,32 @@ $(document).ready(function() {
                 $(this).toggleClass('open');
             }
         );
-    });
+		
+		$('#vinsubmit').click(function() {
+			var $vin = $('#vin').val();
+
+			$.ajax({
+			   url: 'https://api.edmunds.com/api/vehicle/v2/vins/'+$vin,
+			   data: {
+				  fmt: 'json',
+				   api_key: 'jn9v2y4n3795seaexnyctghb'
+			   },
+			   error: function() {
+	//		      $('#info').html('<p>An error has occurred</p>');
+					alert('error calling Edmunds');
+			   },
+			   dataType: 'json',
+			   success: function(data) {
+			      var $make = $('<li>').text(data.make.name);
+				  var $model = $('<li>').text(data.model.name);
+				  var $year = $('<li>').text(data.years[0].year);
+			      $('#carInfo')
+			         .append($make)
+			         .append($model)
+				  	 .append($year);
+					console.log(data);
+			   },
+			   type: 'GET'
+			});
+		});		
+    });	
